@@ -5,7 +5,7 @@ import gleam/result
 import gleam/string
 
 pub type TerminalLink {
-  TerminalLink(destination: String, title: String, id: Option(String))
+  TerminalLink(destination: String, text: String, id: Option(String))
 }
 
 pub fn terminal_link_to_string(l: TerminalLink) -> String {
@@ -17,7 +17,7 @@ pub fn terminal_link_to_string(l: TerminalLink) -> String {
         ";",
         l.destination,
         "\u{1b}\\",
-        l.title,
+        l.text,
         "\u{1b}]8;;\u{1b}\\",
       ])
     }
@@ -26,7 +26,7 @@ pub fn terminal_link_to_string(l: TerminalLink) -> String {
         "\u{1b}]8;;",
         l.destination,
         "\u{1b}\\",
-        l.title,
+        l.text,
         "\u{1b}]8;;\u{1b}\\",
       ])
     }
@@ -98,6 +98,7 @@ fn konsole_version_is_set() -> Bool {
   |> result.is_ok
 }
 
+/// Check if the terminal emulator supports clickable hyperlinks  
 pub fn terminal_supports_links() -> Bool {
   case force_hyperlink_enabled() {
     Some(value) -> value

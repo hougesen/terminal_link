@@ -15,22 +15,22 @@ pub fn main() {
 // gleeunit test functions end in `_test`
 pub fn terminal_link_to_string_test() {
   let destination = "https://mhouge.dk"
-  let title = "mhouge.dk"
+  let text = "mhouge.dk"
   let id = "hougesen"
 
-  TerminalLink(destination, title, None)
+  TerminalLink(destination, text, None)
   |> terminal_link_to_string
   |> should.equal(
     string.concat([
       "\u{1b}]8;;",
       destination,
       "\u{1b}\\",
-      title,
+      text,
       "\u{1b}]8;;\u{1b}\\",
     ]),
   )
 
-  TerminalLink(destination, title, Some(id))
+  TerminalLink(destination, text, Some(id))
   |> terminal_link_to_string
   |> should.equal(
     string.concat([
@@ -39,7 +39,7 @@ pub fn terminal_link_to_string_test() {
       ";",
       destination,
       "\u{1b}\\",
-      title,
+      text,
       "\u{1b}]8;;\u{1b}\\",
     ]),
   )
