@@ -3,7 +3,7 @@
 [![Package Version](https://img.shields.io/hexpm/v/terminal_link)](https://hex.pm/packages/terminal_link)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/terminal_link/)
 
-Easily create clickable terminal links in Gleam programs.
+Easily create clickable terminal hyperlinks in Gleam programs.
 
 `terminal_link` is a loose port of [https://github.com/mainrs/terminal-link-rs](https://github.com/mainrs/terminal-link-rs) and [https://github.com/zkat/supports-hyperlinks](https://github.com/zkat/supports-hyperlinks) to Gleam.
 
